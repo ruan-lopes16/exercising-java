@@ -75,7 +75,7 @@ public class Carro implements Veiculo {
         System.out.println(
                 "MARCA: " + getMarca() +
                 ", MODELO: " + getModelo() +
-                ", PLACA: " + getPlaca() +
+                ", PLACA: " + (getPlaca() != null ? getPlaca() : "N/A") +
                 ", ESTADO: " + (ignicaoLigada ? "Ligado" : "Desligado")
         );
     }
