@@ -1,4 +1,4 @@
-package gpt.OO.construtores.carro;
+package construtores.carro;
 
 public class Carro {
     // atributos

@@ -1,4 +1,4 @@
-package gpt.OO.construtores.retangulo;
+package construtores.retangulo;
 
 public class Retangulo {
     // atributos

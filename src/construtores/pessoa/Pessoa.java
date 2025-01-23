@@ -1,4 +1,4 @@
-package gpt.OO.construtores.pessoa;
+package construtores.pessoa;
 
 public class Pessoa {
     // atributos

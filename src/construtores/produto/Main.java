@@ -1,4 +1,4 @@
-package gpt.OO.construtores.produto;
+package construtores.produto;
 
 public class Main {
     public static void main(String[] args) {
