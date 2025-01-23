@@ -1,4 +1,4 @@
-package gpt.OO.gettersSetters.conta;
+package gettersSetters.conta;
 
 public class Conta {
     // atributos

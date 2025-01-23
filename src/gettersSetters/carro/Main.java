@@ -1,4 +1,4 @@
-package gpt.OO.gettersSetters.carro;
+package gettersSetters.carro;
 
 public class Main {
     public static void main(String[] args) {

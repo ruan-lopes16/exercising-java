@@ -1,4 +1,4 @@
-package gpt.OO.gettersSetters.produto;
+package gettersSetters.produto;
 
 public class Main {
     public static void main(String[] args){

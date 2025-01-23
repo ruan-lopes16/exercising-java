@@ -1,4 +1,4 @@
-package gpt.OO.gettersSetters.carro;
+package gettersSetters.carro;
 
 public class Carro {
     // atributos

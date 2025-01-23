@@ -1,4 +1,4 @@
-package gpt.OO.gettersSetters.pessoa;
+package gettersSetters.pessoa;
 
 public class Main {
     public static void main(String[] args) {
