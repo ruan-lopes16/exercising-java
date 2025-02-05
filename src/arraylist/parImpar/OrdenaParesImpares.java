@@ -1,4 +1,4 @@
-package desafios.parImpar;
+package arraylist.parImpar;
 
 import java.util.ArrayList;
 import java.util.Collections;
