@@ -1,4 +1,7 @@
-package challenges.manageCars;
+package challenges.manageCars.model;
+
+import challenges.manageCars.exceptions.InvalidInputException;
+import challenges.manageCars.exceptions.MaintenanceNeededException;
 
 public class Car {
     // attributes
@@ -9,7 +12,13 @@ public class Car {
     private boolean needsMaintenance;
 
     // construtor
-    public Car( int id, String model, double maxSpeed ){
+    public Car( int id, String model, double maxSpeed ) throws InvalidInputException {
+        if ( id <= 0 ) {
+            throw new InvalidInputException( "Invalid car ID. ID must be positive." );
+        }
+        if ( maxSpeed <= 0 ) {
+            throw new InvalidInputException( "Invalid max speed. Speed must be positive." );
+        }
         this.id = id;
         this.model = model;
         this.maxSpeed = maxSpeed;
@@ -55,7 +64,10 @@ public class Car {
 
     }
 
-    public void registerBestLap( double time ) {
+    public void registerBestLap( double time ) throws InvalidInputException {
+        if ( time <= 0 ) {
+            throw new InvalidInputException( "Invalid lap time. Time must be posisitive." );
+        }
 
         if ( time < this.bestLapTime ) {
             this.bestLapTime = time;
@@ -63,28 +75,23 @@ public class Car {
 
     }
 
-    public boolean needsMaintenance( double odometer ) throws MaintenanceNeededException {
+    public boolean checkMaintenance( double odometer ) throws MaintenanceNeededException {
 
         if ( odometer >= 90000 ) {
             this.needsMaintenance = true;
             throw new MaintenanceNeededException( "Vehicle " + getModel() + " needs maintenance!" );
 
-        } else {
-            return false;
-
         }
+        return false;
 
     }
 
-    public void carInfo() {
-
-        System.out.println(
-                "Car id: " + getId() +
-                "Car model: " + getModel() +
-                "Max speed: " + getMaxSpeed() + "km/h" +
-                "Best lap time: " + getBestLapTime() + "min."
-        );
-
+    @Override
+    public String toString() {
+        return "Car ID: " + id +
+                ", Model: " + model +
+                ", Max Speed: " + maxSpeed + " km/h " +
+                ", Best Lap Time: " + bestLapTime + " min. " +
+                ", Needs Maintenance: " + needsMaintenance;
     }
-
 }

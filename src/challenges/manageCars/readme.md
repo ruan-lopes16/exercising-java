@@ -26,7 +26,7 @@ Exceptions must be handled to ensure that operations are performed robustly and 
    - Methods:
      - `addCar(Car car)`: Adds a car to the fleet.
      - `removeCar(int id) throws CarNotFoundException`: Removes a car based on the ID. If not found, throws an exception.
-     - `updateCar(int id, Car newCar)` throws CarNotFoundException: Updates the information of an existing car. If not found, throws an exception.
+     - `updateCar(int id, Car newCar) throws CarNotFoundException`: Updates the information of an existing car. If not found, throws an exception.
      - `listCars()`: Lists all cars in the fleet.
      - `checkCarsForMaintenance()`: Lists the cars that need maintenance.
         
