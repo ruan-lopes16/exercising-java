@@ -1,4 +1,4 @@
-package arraylist.notas;
+package arrays.notas;
 
 import java.util.ArrayList;
 import java.util.Locale;

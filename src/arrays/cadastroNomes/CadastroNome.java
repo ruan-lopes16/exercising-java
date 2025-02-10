@@ -1,4 +1,4 @@
-package arraylist.cadastroNomes;
+package arrays.cadastroNomes;
 
 import java.util.ArrayList;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package arraylist.tarefas;
+package arrays.tarefas;
 
 import java.util.ArrayList;
 import java.util.Scanner;

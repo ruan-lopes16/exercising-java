@@ -1,4 +1,4 @@
-package arraylist.parImpar;
+package arrays.parImpar;
 
 import java.util.ArrayList;
 import java.util.Collections;
