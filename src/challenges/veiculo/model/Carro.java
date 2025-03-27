@@ -1,6 +1,9 @@
-package challenges.veiculo;
+package challenges.veiculo.model;
 
-public class Carro extends Veiculo implements Motorizado{
+import challenges.veiculo.exceptions.InvalidInputException;
+import challenges.veiculo.exceptions.InvalidPercentualException;
+
+public class Carro extends Veiculo implements Motorizado {
     // atributos
     private int numPortas;
     private boolean estepe;
@@ -12,9 +15,14 @@ public class Carro extends Veiculo implements Motorizado{
 
     // metodos
     // sem retorno
-    void calcDesconto(double percentual) {
-        double desconto = preco * (percentual / 100);
-        preco -= desconto;
+    void calcDesconto(double percentual) throws InvalidPercentualException {
+        if (percentual > 0 || percentual < 100) {
+            double desconto = preco * (percentual / 100);
+            preco -= desconto;
+        } else {
+            throw new InvalidPercentualException("O percentual deve ser maior que 0(zero).");
+        }
+
     }
 
 
@@ -34,7 +42,11 @@ public class Carro extends Veiculo implements Motorizado{
     }
 
     public void setNumPortas(int numPortas) {
-        this.numPortas = numPortas;
+        if (numPortas > 1) {
+            this.numPortas = numPortas;
+        } else {
+            throw new InvalidInputException("A quantidade de portas não pode ser menor que 1(um).");
+        }
     }
 
     public boolean temEstepe() {
@@ -57,8 +69,8 @@ public class Carro extends Veiculo implements Motorizado{
     @Override
     public void exibirDetalhes() {
         System.out.println(" === CARRO === " +
-                "Marca: " + marca +
-                "Modelo: " + modelo +
+                "Marca: " + getMarca() +
+                "Modelo: " + getModelo() +
                 "Ano: " + ano +
                 "Preço: R$" + String.format("R$%.2f", preco) +
                 "Número de portas: " + numPortas +
@@ -74,8 +86,8 @@ public class Carro extends Veiculo implements Motorizado{
                 ", estepe=" + estepe +
                 ", preco=" + preco +
                 ", ano=" + ano +
-                ", modelo='" + modelo + '\'' +
-                ", marca='" + marca + '\'' +
+                ", modelo='" + getModelo() + '\'' +
+                ", marca='" + getMarca() + '\'' +
                 "} " + super.toString();
     }
 

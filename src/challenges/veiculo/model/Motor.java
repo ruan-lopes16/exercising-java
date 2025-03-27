@@ -1,13 +1,15 @@
-package challenges.veiculo;
+package challenges.veiculo.model;
 
 public class Motor {
     // atributos
     private double potencia;
-    private String combustivel;
+    private TipoCombustivel combustivel;
 
     // construtor
-    public Motor(double potencia, String combustivel) {
-        this.potencia = potencia;
+    public Motor(double potencia, TipoCombustivel combustivel) {
+        if (potencia > 0) {
+            this.potencia = potencia;
+        }
         this.combustivel = combustivel;
     }
 
@@ -25,11 +27,11 @@ public class Motor {
         this.potencia = potencia;
     }
 
-    public String getCombustivel() {
+    public TipoCombustivel getCombustivel() {
         return combustivel;
     }
 
-    public void setCombustivel(String combustivel) {
+    public void setCombustivel(TipoCombustivel combustivel) {
         this.combustivel = combustivel;
     }
 }

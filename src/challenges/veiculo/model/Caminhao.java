@@ -1,4 +1,6 @@
-package challenges.veiculo;
+package challenges.veiculo.model;
+
+import challenges.veiculo.exceptions.InvalidInputException;
 
 public class Caminhao extends Veiculo implements Motorizado {
     // atributos
@@ -32,8 +34,12 @@ public class Caminhao extends Veiculo implements Motorizado {
         return capacidadeMax;
     }
 
-    public void setCapacidadeMax(double capacidadeMax) {
-        this.capacidadeMax = capacidadeMax;
+    public void setCapacidadeMax(double capacidadeMax) throws InvalidInputException {
+        if (capacidadeMax > 0) {
+            this.capacidadeMax = capacidadeMax;
+        } else {
+            throw new InvalidInputException("A capacidade máxima não pode ser menor que 0(zero).");
+        }
     }
 
     public boolean ehTrucado() {
@@ -60,16 +66,14 @@ public class Caminhao extends Veiculo implements Motorizado {
     @Override
     public void exibirDetalhes() {
         System.out.println(" === CAMINHÃO === " +
-                "Marca: " + marca +
-                "Modelo: " + modelo +
+                "Marca: " + getMarca() +
+                "Modelo: " + getModelo() +
                 "Ano: " + ano +
                 "Preço: R$" + String.format("R$%.2f", preco) +
                 "Capacidade Máxima: " + capacidadeMax +
                 "É trucado? " + trucado +
                 getMotor().getDescricaoMotor());
     }
-
-
 
     @Override
     public void ligarMotor() {

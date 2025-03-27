@@ -1,4 +1,6 @@
-package challenges.veiculo;
+package challenges.veiculo.model;
+
+import challenges.veiculo.exceptions.InvalidInputException;
 
 public class Moto extends Veiculo implements Motorizado {
     // atributos
@@ -27,8 +29,12 @@ public class Moto extends Veiculo implements Motorizado {
         return cilindradas;
     }
 
-    public void setCilindradas(int cilindradas) {
-        this.cilindradas = cilindradas;
+    public void setCilindradas(int cilindradas) throws InvalidInputException {
+        if (cilindradas > 0) {
+            this.cilindradas = cilindradas;
+        } else {
+            throw new InvalidInputException("A cilindrada não pode ser menor que 0(zero).");
+        }
     }
 
     public boolean ComportaPassageiro() {
@@ -51,8 +57,8 @@ public class Moto extends Veiculo implements Motorizado {
     @Override
     public void exibirDetalhes() {
         System.out.println(" === MOTO === " +
-                "Marca: " + marca +
-                "Modelo: " + modelo +
+                "Marca: " + getMarca() +
+                "Modelo: " + getModelo() +
                 "Ano: " + ano +
                 "Preço: R$" + String.format("R$%.2f", preco) +
                 "Cilindradas: " + cilindradas +

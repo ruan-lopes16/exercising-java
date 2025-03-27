@@ -1,8 +1,8 @@
-Cenário:
-
+# PART 1
+## Cenário:
 Imagine que você está desenvolvendo um sistema para uma concessionária de carros. O sistema precisa gerenciar diferentes tipos de veículos, suas características e funcionalidades.
 
-Requisitos:
+**Requisitos:**
 
 Classe Abstrata "Veiculo":
 
@@ -39,8 +39,26 @@ Crie um método estático na classe Veiculo para calcular o imposto sobre um ve�
 Construtores:
 
 Forneça construtores em todas as classes para inicializar os atributos de forma adequada.
-Desafio Adicional:
 
-Crie uma classe Garagem que pode armazenar uma lista de objetos Veiculo.
-Implemente métodos na classe Garagem para adicionar, remover e exibir os veículos na garagem.
-Este exercício permitirá que você pratique todos os conceitos de Java mencionados de forma integrada e contextualizada. Lembre-se de que a implementação completa do código pode ser extensa, mas este guia fornece uma estrutura sólida para você começar.
+---
+# PART #2
+## Validação de Dados:
+Implemente validações para garantir que os dados de entrada sejam válidos. Por exemplo:
+[x] Verifique se o ano do veículo é um valor positivo.
+[x] Verifique se o preço do veículo é um valor positivo.
+[x] Verifique se o número de portas do carro é um valor positivo.
+[x] Verifique se as cilindradas da moto são um valor positivo.
+[x] Verifique se a capacidade máxima do caminhão é um valor positivo.
+[x] Verifique se a potência do motor é um valor positivo.
+Você pode adicionar essas validações nos construtores e nos métodos setters das classes.
+
+## Encapsulamento Aprimorado:
+[x] Considere tornar os atributos marca e modelo da classe Veiculo como private e fornecer métodos getters para acessá-los. Isso garante um melhor encapsulamento e controle sobre o acesso aos atributos.
+
+## Uso de Enums:
+[x] Se houver atributos com um conjunto limitado de valores possíveis, considere usar enums para representá-los. Por exemplo, você pode criar um enum TipoCombustivel para representar os tipos de combustível do motor.
+
+## Tratamento de Exceções (Erros):
+[x] Explicação: Exceções são como "alertas" que o programa dá quando algo inesperado acontece. Para evitar que o programa pare de funcionar, precisamos "capturar" esses alertas e lidar com eles.
+Exemplo: No método calcDesconto() da classe Carro, verifique se o percentual de desconto é válido:
+Se o percentual for negativo ou maior que 100, exiba uma mensagem de erro.
