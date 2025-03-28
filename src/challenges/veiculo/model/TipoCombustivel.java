@@ -14,8 +14,13 @@ public enum TipoCombustivel {
         this.descricao = descricao;
     }
 
-    // Método getter para acessar a descrição
-    public String getDescricao() {
+//    // Método getter para acessar a descrição
+//    public String getDescricao() {
+//        return descricao;
+//    }
+
+    @Override
+    public String toString() {
         return descricao;
     }
 }

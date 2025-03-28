@@ -75,8 +75,25 @@ public class Caminhao extends Veiculo implements Motorizado {
                 getMotor().getDescricaoMotor());
     }
 
+    // toString
+    @Override
+    public String toString() {
+        return "Caminhao{" +
+                "capacidadeMax=" + capacidadeMax +
+                ", trucado=" + trucado +
+                ", preco=" + preco +
+                ", ano=" + ano +
+                ", modelo='" + getModelo() + '\'' +
+                ", marca='" + getMarca() + '\'' +
+                "} " + super.toString();
+    }
+
     @Override
     public void ligarMotor() {
-
+        System.out.println("Motor do caminhão ligado.");
+    }
+    @Override
+    public void desligarMotor() {
+        System.out.println("Motor do caminhão desligado.");
     }
 }

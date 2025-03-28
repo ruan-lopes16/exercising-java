@@ -16,7 +16,7 @@ public class Carro extends Veiculo implements Motorizado {
     // metodos
     // sem retorno
     void calcDesconto(double percentual) throws InvalidPercentualException {
-        if (percentual > 0 || percentual < 100) {
+        if (percentual > 0 && percentual < 100) {
             double desconto = preco * (percentual / 100);
             preco -= desconto;
         } else {
@@ -96,5 +96,10 @@ public class Carro extends Veiculo implements Motorizado {
     @Override
     public void ligarMotor() {
         System.out.println("Motor do carro ligado.");
+    }
+
+    @Override
+    public void desligarMotor() {
+        System.out.println("Motor do carro desligado.");
     }
 }

@@ -66,10 +66,29 @@ public class Moto extends Veiculo implements Motorizado {
                 getMotor().getDescricaoMotor());
     }
 
+    // toString
+    @Override
+    public String toString() {
+        return "Moto{" +
+                "cilindradas=" + cilindradas +
+                ", comportaPassageiro=" + comportaPassageiro +
+                ", preco=" + preco +
+                ", ano=" + ano +
+                ", modelo='" + getModelo() + '\'' +
+                ", marca='" + getMarca() + '\'' +
+                "} " + super.toString();
+    }
+
+
     // interface
     // metodo sem retorno
     @Override
     public void ligarMotor() {
         System.out.println("Motor da moto ligado.");
+    }
+
+    @Override
+    public void desligarMotor() {
+        System.out.println("Motor da moto desligado.");
     }
 }

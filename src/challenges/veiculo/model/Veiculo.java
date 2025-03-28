@@ -34,6 +34,14 @@ public abstract class Veiculo {
         return modelo;
     }
 
+    public int getAno() {
+        return ano;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
     // metodos
     public abstract void exibirDetalhes();
 

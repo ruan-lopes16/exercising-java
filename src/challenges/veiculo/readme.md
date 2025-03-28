@@ -62,3 +62,29 @@ Você pode adicionar essas validações nos construtores e nos métodos setters 
 [x] Explicação: Exceções são como "alertas" que o programa dá quando algo inesperado acontece. Para evitar que o programa pare de funcionar, precisamos "capturar" esses alertas e lidar com eles.
 Exemplo: No método calcDesconto() da classe Carro, verifique se o percentual de desconto é válido:
 Se o percentual for negativo ou maior que 100, exiba uma mensagem de erro.
+
+---
+# PART #3
+Melhoria no código geral.
+
+Criar uma classe Garagem para armazenar veículos
+[x] Criar uma classe Garagem no pacote model.
+[x] Declarar um atributo List<Veiculo> para armazenar os veículos.
+[x] Criar um construtor que inicializa a lista.
+[x] Criar um método adicionarVeiculo(Veiculo veiculo).
+[x] Criar um método removerVeiculo(Veiculo veiculo).
+[x] Criar um método buscarPorModelo(String modelo).
+[x] Criar um método listarVeiculos() para exibir todos os veículos.
+[x] Criar um método getQuantidadeVeiculos() para retornar a quantidade de veículos na garagem.
+
+Criar um sistema de compra e venda de veículos
+[x] Criar uma classe Usuario com um nome e saldo.
+[x] Criar um método comprarVeiculo(Veiculo veiculo, Garagem garagem), verificando o saldo.
+[x] Criar um método venderVeiculo(Veiculo veiculo, Garagem garagem), adicionando o valor ao saldo.
+[x] Atualizar a classe Garagem para remover e adicionar veículos ao usuário.
+
+---
+# PART FINAL
+[] Mock
+[] Passar tudo para ingles
+

@@ -1,5 +1,7 @@
 package challenges.veiculo.model;
 
+import challenges.veiculo.exceptions.InvalidInputException;
+
 public class Motor {
     // atributos
     private double potencia;
@@ -9,6 +11,8 @@ public class Motor {
     public Motor(double potencia, TipoCombustivel combustivel) {
         if (potencia > 0) {
             this.potencia = potencia;
+        } else {
+            throw new InvalidInputException("A potência do motor deve ser maior que 0(zero)");
         }
         this.combustivel = combustivel;
     }
