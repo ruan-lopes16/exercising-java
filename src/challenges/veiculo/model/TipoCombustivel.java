@@ -3,6 +3,7 @@ package challenges.veiculo.model;
 public enum TipoCombustivel {
     GASOLINA("Gasolina"),
     ETANOL("Etanol"),
+    FLEX("Flex"),
     DIESEL("Diesel"),
     ELETRICO("Elétrico"),
     HIBRIDO("Híbrido");

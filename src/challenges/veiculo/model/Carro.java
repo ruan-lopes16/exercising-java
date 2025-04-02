@@ -9,19 +9,22 @@ public class Carro extends Veiculo implements Motorizado {
     private boolean estepe;
     private Motor motor;
 
-    public Carro(String marca, String modelo, int ano, double preco) {
+    public Carro(String marca, String modelo, int ano, double preco, int numPortas, boolean estepe, Motor motor) {
         super(marca, modelo, ano, preco);
+        this.numPortas = numPortas;
+        this.estepe = estepe;
+        this.motor = motor;
     }
 
     // metodos
     // sem retorno
     void calcDesconto(double percentual) throws InvalidPercentualException {
-        if (percentual > 0 && percentual < 100) {
-            double desconto = preco * (percentual / 100);
-            preco -= desconto;
-        } else {
+        if (percentual <= 0 && percentual >= 100) {
             throw new InvalidPercentualException("O percentual deve ser maior que 0(zero).");
+
         }
+        double desconto = getPreco() * (percentual / 100);
+        setPreco(getPreco() - desconto);
 
     }
 
@@ -49,6 +52,10 @@ public class Carro extends Veiculo implements Motorizado {
         }
     }
 
+    public double setPreco(double preco) {
+        return preco;
+    }
+
     public boolean temEstepe() {
         return estepe;
     }
@@ -71,11 +78,17 @@ public class Carro extends Veiculo implements Motorizado {
         System.out.println(" === CARRO === " +
                 "Marca: " + getMarca() +
                 "Modelo: " + getModelo() +
-                "Ano: " + ano +
-                "Preço: R$" + String.format("R$%.2f", preco) +
-                "Número de portas: " + numPortas +
+                "Ano: " + getAno() +
+                "Preço: R$" + String.format("R$%.2f", getPreco()) +
+                "Número de portas: " + getNumPortas() +
                 "Tem estepe? " + temEstepeTexto() +
                 getMotor().getDescricaoMotor());
+
+        if (motor != null) {
+            System.out.println(motor.getDescricaoMotor());
+        } else {
+            System.out.println("Motor não informado.");
+        }
     }
 
     // toString
