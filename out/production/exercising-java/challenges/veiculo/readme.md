@@ -63,6 +63,7 @@ Você pode adicionar essas validações nos construtores e nos métodos setters 
 Exemplo: No método calcDesconto() da classe Carro, verifique se o percentual de desconto é válido:
 Se o percentual for negativo ou maior que 100, exiba uma mensagem de erro.
 
+---
 # PART #3
 Melhoria no código geral.
 
@@ -78,16 +79,12 @@ Criar uma classe Garagem para armazenar veículos
 
 Criar um sistema de compra e venda de veículos
 [x] Criar uma classe Usuario com um nome e saldo.
-[] Criar um método comprarVeiculo(Veiculo veiculo, Garagem garagem), verificando o saldo.
-[] Criar um método venderVeiculo(Veiculo veiculo, Garagem garagem), adicionando o valor ao saldo.
-[] Atualizar a classe Garagem para remover e adicionar veículos ao usuário.
+[x] Criar um método comprarVeiculo(Veiculo veiculo, Garagem garagem), verificando o saldo.
+[x] Criar um método venderVeiculo(Veiculo veiculo, Garagem garagem), adicionando o valor ao saldo.
+[x] Atualizar a classe Garagem para remover e adicionar veículos ao usuário.
 
-# PART #4
-Criar um método para exibir veículos filtrados
-[] Criar um método filtrarPorAno(int anoMinimo) na Garagem.
-[] Criar um método filtrarPorPreco(double precoMaximo).
-[] Criar um método filtrarPorTipo(Class<? extends Veiculo> tipo).
-
+---
 # PART FINAL
-[x] Passar tudo para ingles
+[] Mock
+[] Passar tudo para ingles
 

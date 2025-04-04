@@ -8,6 +8,12 @@ public class Usuario {
     private String nome;
     private double saldo;
 
+    // construtor
+    public Usuario(String nome, double saldo) {
+        this.nome = nome;
+        this.saldo = saldo;
+    }
+
     // getters
     public String getNome() {
         return nome;

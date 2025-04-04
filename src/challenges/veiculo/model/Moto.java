@@ -4,13 +4,16 @@ import challenges.veiculo.exceptions.InvalidInputException;
 
 public class Moto extends Veiculo implements Motorizado {
     // atributos
-    private int cilindradas;
+    private double cilindradas;
     private boolean comportaPassageiro;
     private Motor motor;
 
     // construtor
-    public Moto(String marca, String modelo, int ano, double preco) {
+    public Moto(String marca, String modelo, int ano, double preco, Motor motor, double cilindradas, boolean comportaPassageiro) {
         super(marca, modelo, ano, preco);
+        this.motor = motor;
+        this.cilindradas = cilindradas;
+        this.comportaPassageiro = comportaPassageiro;
     }
 
     // metodo
@@ -25,11 +28,11 @@ public class Moto extends Veiculo implements Motorizado {
     }
 
     // getters e setters
-    public int getCilindradas() {
+    public double getCilindradas() {
         return cilindradas;
     }
 
-    public void setCilindradas(int cilindradas) throws InvalidInputException {
+    public void setCilindradas(double cilindradas) throws InvalidInputException {
         if (cilindradas > 0) {
             this.cilindradas = cilindradas;
         } else {
@@ -57,26 +60,29 @@ public class Moto extends Veiculo implements Motorizado {
     @Override
     public void exibirDetalhes() {
         System.out.println(" === MOTO === " +
-                "Marca: " + getMarca() +
-                "Modelo: " + getModelo() +
-                "Ano: " + ano +
-                "Preço: R$" + String.format("R$%.2f", preco) +
-                "Cilindradas: " + cilindradas +
-                "Comporta passageiros? " + comportaPassageiro +
-                getMotor().getDescricaoMotor());
+                "\nMarca: " + getMarca() +
+                "\nModelo: " + getModelo() +
+                "\nAno: " + getAno() +
+                "\nPreço: R$" + String.format("%.2f", getPreco()) +
+                "\nCilindradas: " + getCilindradas() +
+                "\nComporta passageiros? " + (comportaPassageiro ? "Sim" : "Não") +
+                "\nTipo de Combustível: " + getMotor().getCombustivel() +
+                "\nPotência: " + getMotor().getPotencia() + "cv"
+        );
     }
 
     // toString
     @Override
     public String toString() {
-        return "Moto{" +
-                "cilindradas=" + cilindradas +
-                ", comportaPassageiro=" + comportaPassageiro +
-                ", preco=" + preco +
-                ", ano=" + ano +
+        return "Moto {" +
+                "marca='" + getMarca() + '\'' +
                 ", modelo='" + getModelo() + '\'' +
-                ", marca='" + getMarca() + '\'' +
-                "} " + super.toString();
+                ", ano=" + getAno() +
+                ", preco=R$" + String.format("%.2f", getPreco()) +
+                ", cilindradas=" + getCilindradas() +
+                ", comportaPassageiro=" + (comportaPassageiro ? "Sim" : "Não") +
+                ", motor=" + getMotor().toString() + // Inclui a representação do motor
+                '}';
     }
 
 

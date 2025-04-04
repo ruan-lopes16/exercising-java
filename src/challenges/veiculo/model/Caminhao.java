@@ -25,8 +25,11 @@ public class Caminhao extends Veiculo implements Motorizado {
     }
 
     // construtores
-    public Caminhao(String marca, String modelo, int ano, double preco) {
+    public Caminhao(String marca, String modelo, int ano, double preco, Motor motor, boolean trucado, double capacidadeMax) {
         super(marca, modelo, ano, preco);
+        this.motor = motor;
+        this.trucado = trucado;
+        this.capacidadeMax =capacidadeMax;
     }
 
     // getters e setters
@@ -67,25 +70,28 @@ public class Caminhao extends Veiculo implements Motorizado {
     public void exibirDetalhes() {
         System.out.println(" === CAMINHÃO === " +
                 "Marca: " + getMarca() +
-                "Modelo: " + getModelo() +
-                "Ano: " + ano +
-                "Preço: R$" + String.format("R$%.2f", preco) +
-                "Capacidade Máxima: " + capacidadeMax +
-                "É trucado? " + trucado +
-                getMotor().getDescricaoMotor());
+                "\nModelo: " + getModelo() +
+                "\nAno: " + ano +
+                "\nPreço: R$" + String.format("%.2f", preco) +
+                "\nCapacidade Máxima: " + capacidadeMax +
+                "\nÉ trucado? " + isTrucado() +
+                "\nTipo de Combustível: " + motor.getCombustivel() +
+                "\nPotência: " + motor.getPotencia() + "cv"
+        );
     }
 
     // toString
     @Override
     public String toString() {
         return "Caminhao{" +
-                "capacidadeMax=" + capacidadeMax +
-                ", trucado=" + trucado +
-                ", preco=" + preco +
-                ", ano=" + ano +
+                "marca='" + getMarca() + '\'' +
                 ", modelo='" + getModelo() + '\'' +
-                ", marca='" + getMarca() + '\'' +
-                "} " + super.toString();
+                ", ano=" + ano +
+                ", preco=" + preco +
+                ", capacidadeMax=" + capacidadeMax +
+                ", trucado=" + isTrucado() +
+                ", motor=" + motor +
+                '}';
     }
 
     @Override

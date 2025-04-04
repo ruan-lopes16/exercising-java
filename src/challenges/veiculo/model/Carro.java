@@ -76,32 +76,27 @@ public class Carro extends Veiculo implements Motorizado {
     @Override
     public void exibirDetalhes() {
         System.out.println(" === CARRO === " +
-                "Marca: " + getMarca() +
-                "Modelo: " + getModelo() +
-                "Ano: " + getAno() +
-                "Preço: R$" + String.format("R$%.2f", getPreco()) +
-                "Número de portas: " + getNumPortas() +
-                "Tem estepe? " + temEstepeTexto() +
-                getMotor().getDescricaoMotor());
-
-        if (motor != null) {
-            System.out.println(motor.getDescricaoMotor());
-        } else {
-            System.out.println("Motor não informado.");
-        }
+                "\nMarca: " + getMarca() +
+                "\nModelo: " + getModelo() +
+                "\nAno: " + getAno() +
+                "\nPreço: R$" + String.format("%.2f", getPreco()) +
+                "\nNúmero de portas: " + getNumPortas() +
+                "\nTem estepe? " + temEstepeTexto() +
+                "\n" + getMotor().getDescricaoMotor()); // Motor exibido diretamente
     }
 
     // toString
     @Override
     public String toString() {
-        return "Carro{" +
-                "numPortas=" + numPortas +
-                ", estepe=" + estepe +
-                ", preco=" + preco +
-                ", ano=" + ano +
+        return "Carro {" +
+                "marca='" + getMarca() + '\'' +
                 ", modelo='" + getModelo() + '\'' +
-                ", marca='" + getMarca() + '\'' +
-                "} " + super.toString();
+                ", ano=" + getAno() +
+                ", preco=R$" + String.format("%.2f", getPreco()) +
+                ", numPortas=" + getNumPortas() +
+                ", estepe=" + estepe +
+                ", motor=" + getMotor().toString() + // Inclui a representação do motor
+                '}';
     }
 
     // interface
