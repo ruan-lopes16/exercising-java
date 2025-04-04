@@ -1,15 +1,15 @@
-package challenges.veiculo.model;
+package challenges.LojaConcessionaria.model;
 
-import challenges.veiculo.exceptions.VeiculoNaoEncontradoException;
+import challenges.LojaConcessionaria.exceptions.VeiculoNaoEncontradoException;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LojaCarros {
+public class LojaConcessionaria {
     private List<Veiculo> veiculoList;
 
     // construtor que inicia a lista
-    public LojaCarros() {
+    public LojaConcessionaria() {
         this.veiculoList = new ArrayList<>();
     }
 

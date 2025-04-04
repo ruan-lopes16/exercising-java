@@ -1,9 +1,13 @@
-package challenges.veiculo.mock;
+package challenges.LojaConcessionaria.mock;
 
-import challenges.veiculo.model.*;
+import challenges.LojaConcessionaria.exceptions.SaldoInvalidoException;
+import challenges.LojaConcessionaria.exceptions.VeiculoNaoEncontradoException;
+import challenges.LojaConcessionaria.model.*;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Mock {
 
@@ -215,4 +219,61 @@ public class Mock {
                 new Usuario("Wanderson", 9658741)
         );
     }
+
+    // Garagens de usuários
+    public static Map<Usuario, GaragemUsuario> garagensUsuarios(List<Usuario> usuarios) { // indica que este método retorna um mapa que associa objetos Usuario a objetos GaragemUsuario.
+        Map<Usuario, GaragemUsuario> garagens = new HashMap<>(); // HashMap = chave-valor // chaves são objetos Usuario e valores são objetos GaragemUsuario
+        for (Usuario usuario: usuarios) {
+            garagens.put(usuario, new GaragemUsuario());
+        }
+        return garagens;
+    }
+
+    // loja / concessionaria
+    // instâncias de LojaConcessionaria para simular diferentes lojas com diferentes estoques de veículos.
+    public static List<LojaConcessionaria> lojasConcessionarias(List<Carro> carros, List<Moto> motos, List<Caminhao> caminhoes) {
+        LojaConcessionaria loja1 = new LojaConcessionaria();
+        // sublist - cria uma sublista dos 10 primeiros elementos da lista carros (adiciona os 10 primeiros carros da lista carros ao estoque da loja1)
+        carros.subList(0, 10).forEach(loja1::adicionarVeiculo); // itera sobre cada carro na sublista e chama o método adicionarVeiculo() da loja1 para adicioná-lo ao estoque.
+        motos.subList(0, 5).forEach(loja1::adicionarVeiculo);
+        caminhoes.subList(0, 2).forEach(loja1::adicionarVeiculo);
+
+        LojaConcessionaria loja2 = new LojaConcessionaria();
+        carros.subList(10, 20).forEach(loja2::adicionarVeiculo);
+        motos.subList(5, 10).forEach(loja2::adicionarVeiculo);
+        caminhoes.subList(2, 4).forEach(loja2::adicionarVeiculo);
+
+        LojaConcessionaria loja3 = new LojaConcessionaria();
+        carros.subList(20, carros.size()).forEach(loja3::adicionarVeiculo);
+        motos.subList(10, motos.size()).forEach(loja3::adicionarVeiculo);
+        caminhoes.subList(4, caminhoes.size()).forEach(loja3::adicionarVeiculo);
+
+        return Arrays.asList(loja1, loja2, loja3);  //  retorna uma lista contendo as três lojas criadas.
+    }
+
+    // métodos para simular interações de compra e venda entre usuários e lojas
+    public static void simularCompra(Usuario usuario, Veiculo veiculo, GaragemUsuario garagemUsuario) {
+        try {
+            usuario.comprarVeiculo(veiculo, garagemUsuario);
+            System.out.println(usuario.getNome() + " comprou " + veiculo.getModelo());
+        } catch (SaldoInvalidoException e) {
+            System.out.println(usuario.getNome() + " não tem saldo suficiente para comprar " + veiculo.getModelo());
+        }
+    }
+
+    public static void simularVenda(Usuario usuario, Veiculo veiculo, GaragemUsuario garagemUsuario) {
+        try {
+            usuario.venderVeiculo(veiculo, garagemUsuario);
+            System.out.println(usuario.getNome() + " vendeu " + veiculo.getModelo());
+        } catch (VeiculoNaoEncontradoException e) {
+            System.out.println(usuario.getNome() + " não possui " + veiculo.getModelo() + " para vender.");
+        }
+    }
+
+    // método para listar os veículos de uma loja ou garagem
+    public static void listarVeiculos(LojaConcessionaria loja) {
+        System.out.println("Lista de veículos na loja:");
+        loja.listarVeiculos();
+    }
+
 }

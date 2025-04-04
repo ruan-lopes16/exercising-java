@@ -1,6 +1,6 @@
-package challenges.veiculo.model;
+package challenges.LojaConcessionaria.model;
 
-import challenges.veiculo.exceptions.InvalidInputException;
+import challenges.LojaConcessionaria.exceptions.InvalidInputException;
 
 public abstract class Veiculo {
     // atributos

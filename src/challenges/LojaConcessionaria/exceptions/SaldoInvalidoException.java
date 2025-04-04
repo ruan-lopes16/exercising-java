@@ -1,4 +1,4 @@
-package challenges.veiculo.exceptions;
+package challenges.LojaConcessionaria.exceptions;
 
 public class SaldoInvalidoException extends RuntimeException {
     public SaldoInvalidoException(String message) {

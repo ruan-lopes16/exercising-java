@@ -1,4 +1,4 @@
-package challenges.veiculo.model;
+package challenges.LojaConcessionaria.model;
 
 public interface Motorizado {
     void ligarMotor();

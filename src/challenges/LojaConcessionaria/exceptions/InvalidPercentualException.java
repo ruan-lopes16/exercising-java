@@ -1,4 +1,4 @@
-package challenges.veiculo.exceptions;
+package challenges.LojaConcessionaria.exceptions;
 
 public class InvalidPercentualException extends RuntimeException {
     public InvalidPercentualException(String message) {

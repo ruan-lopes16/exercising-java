@@ -1,4 +1,4 @@
-package challenges.veiculo.exceptions;
+package challenges.LojaConcessionaria.exceptions;
 
 public class InvalidInputException extends RuntimeException {
     public InvalidInputException(String message) {

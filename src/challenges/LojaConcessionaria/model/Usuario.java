@@ -1,7 +1,7 @@
-package challenges.veiculo.model;
+package challenges.LojaConcessionaria.model;
 
-import challenges.veiculo.exceptions.SaldoInvalidoException;
-import challenges.veiculo.exceptions.VeiculoNaoEncontradoException;
+import challenges.LojaConcessionaria.exceptions.SaldoInvalidoException;
+import challenges.LojaConcessionaria.exceptions.VeiculoNaoEncontradoException;
 
 public class Usuario {
     // atributos
@@ -38,8 +38,19 @@ public class Usuario {
     public void venderVeiculo(Veiculo veiculo, GaragemUsuario garagemUsuario) throws VeiculoNaoEncontradoException {
         try {
             garagemUsuario.removerVeiculo(veiculo);
-            saldo += veiculo.getPreco();
-            System.out.println("Veículo vendido com sucesso!");
+            double precoVenda = veiculo.getPreco();
+            double taxaDesvalorizacao;
+            if (veiculo instanceof Carro) {
+                taxaDesvalorizacao = 0.10; // 10% para carros
+            } else if (veiculo instanceof Moto) {
+                taxaDesvalorizacao = 0.15; // 15% para motos
+            } else {
+                taxaDesvalorizacao = 0.08; // 8% para caminhões
+            }
+            double desvalorizacao = precoVenda * taxaDesvalorizacao;
+            precoVenda -= desvalorizacao;
+            saldo += precoVenda;
+            System.out.println("Veículo vendido com sucesso! Preço de venda: R$" + String.format("%.2f", precoVenda));
         } catch (VeiculoNaoEncontradoException e) {
             System.out.println("Erro ao vender veículo: " + e.getMessage());
         }

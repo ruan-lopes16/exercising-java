@@ -1,7 +1,7 @@
-package challenges.veiculo.model;
+package challenges.LojaConcessionaria.model;
 
-import challenges.veiculo.exceptions.InvalidInputException;
-import challenges.veiculo.exceptions.InvalidPercentualException;
+import challenges.LojaConcessionaria.exceptions.InvalidInputException;
+import challenges.LojaConcessionaria.exceptions.InvalidPercentualException;
 
 public class Carro extends Veiculo implements Motorizado {
     // atributos
